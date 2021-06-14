@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsLM
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        bool gameopen = true;
+        do
         {
-        }
+
+            Game game = new Game();
+            game.Menu();
+
+        } while (gameopen);
     }
 }
+
