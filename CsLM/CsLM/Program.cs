@@ -13,7 +13,8 @@ class Program
             Game game = new Game();
         do
         {
-            gameopen = game.Menu();
+            gameopen = game.Play();
+            
         } while (gameopen);
     }
 }

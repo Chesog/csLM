@@ -62,8 +62,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Castle.cs" />
+    <Compile Include="Encounters.cs" />
+    <Compile Include="Enemies.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Gameplay.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

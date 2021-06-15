@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 class Village
 {
+    Shop shop = new Shop();
     public void Rest(Player player)
     {
         player.Heal();
