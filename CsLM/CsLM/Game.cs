@@ -9,10 +9,13 @@ using System.IO;
 
 class Game
 {
-    
+    private int menu;
+    private string name;
+    private int MaxLife;
+    private int MaxMana;
     public Game()
     {
-        Player player = new Player();
+        Player player = new Player(name,MaxLife,MaxMana);
         Village village = new Village();
         Gameplay gameplay = new Gameplay();
         Shop shop = new Shop();
@@ -20,30 +23,43 @@ class Game
     }
     public bool Menu()
     {
-        try
+        string[] lines = File.ReadAllLines("./Menuintro/menu.txt");
+        for (int i = 0; i < lines.Length; i++)
         {
-            StreamReader sr = new StreamReader("./Menuintro/menu");
-            string line = sr.ReadLine();
-            while (line != null)
-            {
-                Console.WriteLine(line);
-                line = sr.ReadLine();
-            }
-            sr.Close();
-            Console.ReadLine();
+            Console.WriteLine(lines[i]);
         }
-        catch (Exception e)
+        int respuesta = Convert.ToInt32(Console.ReadLine());
+        
+        switch (respuesta)
         {
-            Console.WriteLine("Exception: " + e.Message);
-            
+            case 1:
+                menu = 1;
+                break;
+            case 2:
+                menu = 1;
+                break;
+            case 3:
+                menu = 1;
+                break;
+            case 4:
+                Console.WriteLine("La Marca Te consume");
+                Console.ReadKey();
+                menu = 0;
+                break;
+            default:
+                break;
         }
-        finally
+        if (menu == 1)
         {
-            Console.WriteLine("Executing finally block.");
+            return true;
+        }
+        else
+        {
+            return false;
         }
 
-
-        return true;
+        
     }
+    
 }
 

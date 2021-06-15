@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 class Village
 {
-
+    public void Rest(Player player)
+    {
+        player.Heal();
+        player.RestoreMana();
+    }
 }
 

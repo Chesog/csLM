@@ -10,12 +10,10 @@ class Program
     static void Main(string[] args)
     {
         bool gameopen = true;
+            Game game = new Game();
         do
         {
-
-            Game game = new Game();
-            game.Menu();
-
+            gameopen = game.Menu();
         } while (gameopen);
     }
 }
