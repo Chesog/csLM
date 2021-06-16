@@ -13,18 +13,21 @@ class Game
     private string name;
     private int MaxLife;
     private int MaxMana;
+    private Locations PlayerLocation;
+    
+
+    
     public Game()
     {
         Player player = new Player(name,MaxLife,MaxMana);
         Village village = new Village();
-        Gameplay gameplay = new Gameplay();
         Castle castle = new Castle(6);
+        
 
     }
     public bool Play()
     {
-        Console.WriteLine("Bruno es gay");
-        Console.ReadKey();
+        Menu menu = new Menu();
         return true;
     }
     

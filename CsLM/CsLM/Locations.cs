@@ -1,0 +1,4 @@
+﻿enum Locations {Village , Castle}
+
+
+

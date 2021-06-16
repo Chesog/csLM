@@ -13,6 +13,7 @@ class Player
     private int Life;
     private int MaxMana;
     private int Mana;
+    private Locations location;
     public Player(string name , int MaxLife , int MaxMana)
     {
         this.name = name;

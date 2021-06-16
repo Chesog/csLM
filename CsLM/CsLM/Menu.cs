@@ -11,6 +11,7 @@ using System.IO;
 class Menu
 {
     private int menu;
+    public bool loop;
     
     public  Menu ()
     {
@@ -42,12 +43,13 @@ class Menu
         }
         if (menu == 1)
         {
-            return true;
+             
         }
         else
         {
-            return false;
+            
         }
+       
     }
 }
 
