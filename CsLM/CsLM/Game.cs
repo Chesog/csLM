@@ -19,7 +19,7 @@ class Game
     
     public Game()
     {
-        Player player = new Player(name,MaxLife,MaxMana);
+        Player player = new Player(name,MaxLife,MaxMana,Locations.Forest);
         Village village = new Village();
         Castle castle = new Castle(6);
         

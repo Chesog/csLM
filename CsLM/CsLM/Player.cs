@@ -14,11 +14,14 @@ class Player
     private int MaxMana;
     private int Mana;
     private Locations location;
-    public Player(string name , int MaxLife , int MaxMana)
+    public Player(string name , int MaxLife , int MaxMana, Locations spawnpoint)
     {
         this.name = name;
         this.MaxLife = MaxLife;
+        this.Life = MaxLife;
         this.MaxMana = MaxMana;
+        this.Mana = MaxMana;
+        location = spawnpoint;
     }
     public void Heal()
     {

@@ -1,4 +1,4 @@
-﻿enum Locations {Village , Castle}
+﻿public enum Locations {Village , Castle, Forest}
 
 
 
