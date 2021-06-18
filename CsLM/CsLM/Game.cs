@@ -13,21 +13,45 @@ class Game
     private string name;
     private int MaxLife;
     private int MaxMana;
-    private Locations PlayerLocation;
+    private int minAttk;
+    private int maxAttk;
+    private Player player;
+    private Village village;
+    private Castle castle;
+    private Menu Menu;
+    private Locations location;
     
 
     
     public Game()
     {
-        Player player = new Player(name,MaxLife,MaxMana,Locations.Forest);
-        Village village = new Village();
-        Castle castle = new Castle(6);
+        player = new Player(name,MaxLife,MaxMana,minAttk,maxAttk,Locations.Forest);
+        village = new Village();
+        castle = new Castle(6);
+        Menu = new Menu();
         
-
     }
+    
     public bool Play()
     {
-        Menu menu = new Menu();
+        switch (player.GetLocations())
+        {
+            case Locations.Forest:
+                player.GoToForest();
+                break;
+            case Locations.Castle:
+                player = castle.stayinCastle(player);
+                break;
+            case Locations.Village:
+                player = village.Stay(player);
+                break;
+            case Locations.Shop:
+                player.GoToShop();
+                break;
+            default:
+                Console.WriteLine("Error");
+                break;
+        }
         return true;
     }
     

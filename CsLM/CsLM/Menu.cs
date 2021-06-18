@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +11,11 @@ class Menu
 {
     private int menu;
     public bool loop;
-    
-    public  Menu ()
+    public Menu()
+    {
+
+    }
+    public bool Menus()
     {
         string[] lines = File.ReadAllLines("./Menuintro/menu.txt");
         for (int i = 0; i < lines.Length; i++)
@@ -43,11 +45,11 @@ class Menu
         }
         if (menu == 1)
         {
-             
+            return true;
         }
         else
         {
-            
+            return false;
         }
        
     }
