@@ -61,7 +61,7 @@ class Player
             GoToVillage();
         }
     }
-    public void Dodamage(List<Enemies> enemies)
+    public List<Enemies> Dodamage(List<Enemies> enemies)
     {
         Random random = new Random();
         int damage = random.Next(minAttk, maxAttk);
@@ -82,6 +82,7 @@ class Player
         {
             Console.WriteLine("MISS");
         }
+        return enemies;
 
     }
 

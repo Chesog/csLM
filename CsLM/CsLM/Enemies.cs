@@ -43,5 +43,9 @@ class Enemies
             Console.WriteLine("F" + name);
         }
     }
+    public bool isDead()
+    {
+        return Life <= 0;
+    }
 }
 
