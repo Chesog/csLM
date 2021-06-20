@@ -49,7 +49,7 @@ class Castle
     }
     public void Enter()
     {
-        Console.WriteLine("You have enter the tower");
+        Console.WriteLine("You have enter the Castle");
         OnEnterOption onEnterOption;
         Console.WriteLine("Que Decides?");
         Console.WriteLine("Leave = 0 - Fight = 1");

@@ -57,7 +57,7 @@ class Player
         Life -= amount;
         if (Life <= 0 )
         {
-            Console.WriteLine("OMG , He DEAD");
+            Console.WriteLine("OMG , HE DEAD");
             GoToVillage();
         }
     }
