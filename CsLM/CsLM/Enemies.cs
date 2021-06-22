@@ -31,6 +31,15 @@ class Enemies
         bw.Write(maxattk);
         return bw;
     }
+    public BinaryReader Load (BinaryReader br)
+    {
+        name = br.ReadString();
+        maxLife = br.ReadInt32();
+        Life = br.ReadInt32();
+        minattk = br.ReadInt32();
+        maxattk = br.ReadInt32();
+        return br;
+    }
     public Player AttackPlayer(Player player)
     {
         Random random = new Random();

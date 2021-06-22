@@ -37,6 +37,17 @@ class Castle
         bw.Write((int)currentOption);
         return bw;
     }
+    public BinaryReader Load (BinaryReader br)
+    {
+        int EncounterCout = br.ReadInt32();
+        for (int i = 0; i < EncounterCout; i++)
+        {
+            br = encounters[i].Load(br);
+        }
+        lastEncounter = br.ReadInt32();
+        currentOption = (options)br.ReadInt32();
+        return br;
+    }
     public Player stayinCastle(Player player)
     {
         switch (currentOption)
