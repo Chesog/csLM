@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 
 
@@ -24,6 +25,17 @@ class Castle
         }
         lastEncounter = 0;
         currentOption = options.Enter;
+    }
+    public BinaryWriter Save (BinaryWriter bw)
+    {
+        bw.Write(encounters.Count);
+        for (int i = 0; i < encounters.Count; i++)
+        {
+            bw = encounters[i].Save(bw);
+        }
+        bw.Write(lastEncounter);
+        bw.Write((int)currentOption);
+        return bw;
     }
     public Player stayinCastle(Player player)
     {

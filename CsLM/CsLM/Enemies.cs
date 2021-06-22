@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 
 
@@ -20,6 +21,15 @@ class Enemies
         this.Life = maxLife;
         this.minattk = minattk;
         this.maxattk = maxattk;
+    }
+    public BinaryWriter Save(BinaryWriter bw)
+    {
+        bw.Write(name);
+        bw.Write(maxLife);
+        bw.Write(Life);
+        bw.Write(minattk);
+        bw.Write(maxattk);
+        return bw;
     }
     public Player AttackPlayer(Player player)
     {

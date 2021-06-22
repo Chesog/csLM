@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 
 
@@ -27,6 +28,18 @@ class Player
         this.Mana = MaxMana;
 
         Location = spawnpoint;
+    }
+    public BinaryWriter save(BinaryWriter bw)
+    {
+        bw.Write(name);
+        bw.Write(MaxLife);
+        bw.Write(Life);
+        bw.Write(MaxMana);
+        bw.Write(Mana);
+        bw.Write(minAttk);
+        bw.Write(maxAttk);
+        bw.Write((int)Location);
+        return bw;
     }
     public void Heal()
     {
@@ -106,5 +119,6 @@ class Player
     {
         Location = Locations.Forest;
     }
+
 }
 
