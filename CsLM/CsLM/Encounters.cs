@@ -31,6 +31,15 @@ class Encounters
         }
         return bw;
     }
+    public BinaryReader Load (BinaryReader br)
+    {
+        int EnemiesCount = br.ReadInt32();
+        for (int i = 0; i < EnemiesCount; i++)
+        {
+            br = enemies[i].Load(br);
+        }
+        return br;
+    }
     public Player Fight(Player player)
     {
         for (int i = 0; i < enemies.Count; i++)

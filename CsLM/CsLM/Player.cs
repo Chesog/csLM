@@ -41,6 +41,18 @@ class Player
         bw.Write((int)Location);
         return bw;
     }
+    public BinaryReader Load (BinaryReader br)
+    {
+        name = br.ReadString();
+        MaxLife = br.ReadInt32();
+        Life = br.ReadInt32();
+        MaxMana = br.ReadInt32();
+        Mana = br.ReadInt32();
+        minAttk = br.ReadInt32();
+        maxAttk = br.ReadInt32();
+        Location = (Locations)br.ReadInt32();
+        return br;
+    }
     public void Heal()
     {
         Life = MaxLife;

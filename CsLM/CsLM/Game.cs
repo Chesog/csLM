@@ -54,7 +54,7 @@ class Game
         }
         return true;
     }
-    public void save()
+    public void Save()
     {
         Stream save = File.Open("./Saves/MySave.sav", FileMode.OpenOrCreate);
         BinaryWriter bw = new BinaryWriter(save);
@@ -63,6 +63,14 @@ class Game
         bw.Close();
         save.Close();
     }
-    
+    public void Load()
+    {
+        Stream file = File.Open("./Saves/MySave.sav", FileMode.Open);
+        BinaryReader br = new BinaryReader(file);
+        br = player.Load(br);
+        br = castle.Load(br);
+        br.Close();
+        file.Close();
+    }
 }
 
