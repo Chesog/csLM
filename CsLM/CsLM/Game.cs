@@ -19,22 +19,46 @@ class Game
     private Village village;
     private Castle castle;
     private Forest forest;
-    private Menu Menu;
     private Locations location;
 
 
 
     public Game()
     {
-        Menu = new Menu();
-        bool Load = true;
-        if (Load)
+        bool load;
+        string[] lines = File.ReadAllLines("./Menuintro/menu.txt");
+        for (int i = 0; i < lines.Length; i++)
         {
-            LoadGame();
+            Console.WriteLine(lines[i]);
         }
-        else
+        int respuesta = Convert.ToInt32(Console.ReadLine());
+
+        switch (respuesta)
         {
-            StartNewGame();
+            case 1:
+                StartNewGame();
+                break;
+            case 2:
+                LoadGame();
+                break;
+            case 3:
+                Creditos();
+                break;
+            case 4:
+                Console.WriteLine("La Marca Te consume");
+                Console.ReadKey();
+                break;
+            default:
+                break;
+
+                if (load)
+                {
+                    LoadGame();
+                }
+                else
+                {
+                    StartNewGame();
+                }
         }
     }
     public void LoadGame()
@@ -48,6 +72,10 @@ class Game
         player = new Player(name, MaxLife, MaxMana, minAttk, maxAttk, Locations.Forest);
         village = new Village();
         castle = new Castle(6);
+
+    }
+    public void Creditos()
+    {
 
     }
 
@@ -96,5 +124,6 @@ class Game
             file.Close();
         }
     }
+
 }
 
