@@ -18,20 +18,39 @@ class Game
     private Player player;
     private Village village;
     private Castle castle;
+    private Forest forest;
     private Menu Menu;
     private Locations location;
-    
 
-    
+
+
     public Game()
     {
-        player = new Player(name,MaxLife,MaxMana,minAttk,maxAttk,Locations.Forest);
+        Menu = new Menu();
+        bool Load = true;
+        if (Load)
+        {
+            LoadGame();
+        }
+        else
+        {
+            StartNewGame();
+        }
+    }
+    public void LoadGame()
+    {
+        Load();
+        village = new Village();
+        forest = new Forest();
+    }
+    public void StartNewGame()
+    {
+        player = new Player(name, MaxLife, MaxMana, minAttk, maxAttk, Locations.Forest);
         village = new Village();
         castle = new Castle(6);
-        Menu = new Menu();
-        
+
     }
-    
+
     public bool Play()
     {
         switch (player.GetLocations())
@@ -65,12 +84,17 @@ class Game
     }
     public void Load()
     {
-        Stream file = File.Open("./Saves/MySave.sav", FileMode.Open);
-        BinaryReader br = new BinaryReader(file);
-        br = player.Load(br);
-        br = castle.Load(br);
-        br.Close();
-        file.Close();
+        if (File.Exists("./Saves/MySave.sav"))
+        {
+            Stream file = File.Open("./Saves/MySave.sav", FileMode.Open);
+            BinaryReader br = new BinaryReader(file);
+            player = new Player();
+            br = player.Load(br);
+            castle = new Castle();
+            br = castle.Load(br);
+            br.Close();
+            file.Close();
+        }
     }
 }
 

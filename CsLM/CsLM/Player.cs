@@ -17,6 +17,11 @@ class Player
     private int minAttk;
     private int maxAttk;
     private Locations Location;
+
+    public Player()
+    {
+
+    }
     public Player(string name , int MaxLife , int MaxMana,int minAttk, int maxAttk , Locations spawnpoint)
     {
         this.name = name;

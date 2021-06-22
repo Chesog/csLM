@@ -22,6 +22,10 @@ class Encounters
             enemies.Add(new Enemies("Lich", 100, 0, 20));
         }
     }
+    public Encounters()
+    {
+
+    }
     public BinaryWriter Save (BinaryWriter bw)
     {
         bw.Write(enemies.Count);
@@ -34,9 +38,12 @@ class Encounters
     public BinaryReader Load (BinaryReader br)
     {
         int EnemiesCount = br.ReadInt32();
+        enemies = new List<Enemies>();
         for (int i = 0; i < EnemiesCount; i++)
         {
-            br = enemies[i].Load(br);
+            Enemies enemy = new Enemies();
+            br = enemy.Load(br);
+            enemies.Add(enemy);
         }
         return br;
     }

@@ -16,6 +16,10 @@ class Castle
     private enum OnEnterOption {Leave , Fight , Error };
     private enum EndFightOption { Leave, Search, Error };
 
+    public Castle()
+    {
+
+    }
     public Castle(int EncountersAmount)
     {
         encounters = new List<Encounters>();
@@ -40,9 +44,12 @@ class Castle
     public BinaryReader Load (BinaryReader br)
     {
         int EncounterCout = br.ReadInt32();
+        encounters = new List<Encounters>();
         for (int i = 0; i < EncounterCout; i++)
         {
-            br = encounters[i].Load(br);
+            Encounters newencounter = new Encounters();
+            br = newencounter.Load(br);
+            encounters.Add(newencounter);
         }
         lastEncounter = br.ReadInt32();
         currentOption = (options)br.ReadInt32();

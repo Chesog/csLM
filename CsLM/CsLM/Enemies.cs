@@ -14,6 +14,10 @@ class Enemies
     private int Life;
     private int minattk;
     private int maxattk;
+    public Enemies()
+    {
+
+    }
     public Enemies(string name, int maxLife, int minattk, int maxattk)
     {
         this.name = name;
