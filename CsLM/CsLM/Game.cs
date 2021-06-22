@@ -54,6 +54,15 @@ class Game
         }
         return true;
     }
+    public void save()
+    {
+        Stream save = File.Open("./Saves/MySave.sav", FileMode.OpenOrCreate);
+        BinaryWriter bw = new BinaryWriter(save);
+        bw = player.save(bw);
+        bw = castle.Save(bw);
+        bw.Close();
+        save.Close();
+    }
     
 }
 

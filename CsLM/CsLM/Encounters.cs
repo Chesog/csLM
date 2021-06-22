@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 
 
 class Encounters
@@ -21,6 +21,15 @@ class Encounters
             enemies.Add(new Enemies("Wolf", 50, 0, 10));
             enemies.Add(new Enemies("Lich", 100, 0, 20));
         }
+    }
+    public BinaryWriter Save (BinaryWriter bw)
+    {
+        bw.Write(enemies.Count);
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            bw = enemies[i].Save(bw);
+        }
+        return bw;
     }
     public Player Fight(Player player)
     {
